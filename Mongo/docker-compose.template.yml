@@ -1,0 +1,12 @@
+services:
+  mongodb:
+    image: mongo:latest     # 使用するMongoDBのイメージとバージョン
+    container_name: mongo  # コンテナ名
+    restart: always  # 再起動ポリシー
+    ports:
+      - "27017:27017"  # ホストとコンテナのポートマッピング
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin  # 初期ルートユーザー名
+      MONGO_INITDB_ROOT_PASSWORD: password  # 初期ルートパスワード
+    volumes:
+      - ./data:/data/db
